@@ -156,14 +156,15 @@ button {
     border: none;
     outline: none;
     height: 50px;
-    width: 150px;
-    font-size: 1em;
+    font-size: 14px;
     color: #fff;
     cursor: pointer;
     text-transform: uppercase;
     position: relative;
     -webkit-transition: all 0.3s;
-            transition: all 0.3s;
+    transition: all 0.3s;
+    padding-left: 30px;
+    padding-right: 15px;
 }
 
 .icon {
@@ -175,7 +176,7 @@ button {
 
 .taskAdd {
     background: #444;
-    padding-left: 15px;
+    padding-left: 31px;
 }
 
 .taskAdd:hover {

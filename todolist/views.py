@@ -13,9 +13,9 @@ def index(request): #the index view
 		if "taskAdd" in request.POST: #checking if there is a request to add a todo
 			title = request.POST["description"] #title
 			date = str(request.POST["date"]) #date
-			catgory = request.POST["category_select"] #category
-			content = title + " -- " + date + " " + catgory #content
-			Todo = TodoList(title=title, content=content, due_date=datetime.datetime.date(datetime.datetime(int(date[:4:]), int(date[5:7:]), int(date[8:10:]))), category=Category.objects.get(name=category))
+			category = request.POST["category_select"] #category
+			content = title + " -- " + date + " " + category #content
+			Todo = TodoList(title=title, content=content, due_date=date, category=Category.objects.get(name=category))
 			Todo.save() #saving the todo 
 			return redirect("/") #reloading the page
 		
@@ -25,4 +25,4 @@ def index(request): #the index view
 				todo = TodoList.objects.get(id=int(todo_id)) #getting todo id
 				todo.delete() #deleting todo
 
-	return render(request, "add-todo.html", {"todos": todos, "categories":categories})
+	return render(request, "index.html", {"todos": todos, "categories":categories})
