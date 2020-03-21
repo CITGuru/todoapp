@@ -21,9 +21,10 @@ class TodoList(models.Model): #Todolist able name that inherits models.Model
 	created = models.DateField(default=timezone.now().strftime("%Y-%m-%d")) # a date
 	due_date = models.DateField(default=timezone.now().strftime("%Y-%m-%d")) # a date
 	category = models.ForeignKey(Category, default="general") # a foreignkey
+	completed = models.BooleanField(default=False) #task status
 
 	class Meta:
-		ordering = ["-created"] #ordering by the created field
+		ordering = ["completed"] #ordering by the status of task 
 
 	def __str__(self):
 		return self.title #name to be shown when called
