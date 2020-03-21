@@ -44,6 +44,11 @@
             
             <ul  class="taskList">
             {% for todo in todos %} <!-- django template lang - for loop -->
+	      {% if todo.completed == True %}
+                <div class="alert alert-primary complete-true">
+              {% else %}
+                <div class="alert alert-danger">
+              {% endif %}    
                 <li class="taskItem">
                     <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ todo.id }}" value="{{ todo.id }}">
                     <label for="{{ todo.id }}"><span class="complete-">{{ todo.title }}</span></label>
