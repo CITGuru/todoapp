@@ -192,6 +192,14 @@ button {
     background: #c0392b;
 }
 
+.taskComplete {
+    background: #4e9425;
+    padding-left: 30px;
+}
+
+.taskComplete:hover {
+    background: #27752b;
+}
 /* task styles */
 .taskList {
     list-style: none;

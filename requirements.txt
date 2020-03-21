@@ -1,0 +1,6 @@
+asgiref==3.2.5
+bootstrap4==0.1.0
+Django==3.0.4
+pytz==2019.3
+sqlparse==0.3.1
+whitenoise==5.0.1
