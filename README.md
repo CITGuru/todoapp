@@ -1,4 +1,4 @@
 # todoapp
 A simple django todoapp
 
-![alt text](https://imgur.com/a/OS3Ro4C)
+<a href="https://imgur.com/a/OS3Ro4C"></a>
