@@ -3,14 +3,14 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render,redirect
 from .models import TodoList, Category
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView,FormView
 import datetime
-# Create your views here.
 
 
-class Index(TemplateView):
+
+class Index(FormView):
     template_name = 'index.html'
-
+    success_url = '/'
 
 
     def get(self,request,**kwargs):
@@ -38,5 +38,9 @@ class Index(TemplateView):
                 todo.delete() #deleting todo
 
         return render(self.request, "index.html", {"todos": todos, "categories":categories})
-#
-#
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+        # form.send_email()
+        return super().form_valid(form)
