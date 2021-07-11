@@ -24,5 +24,12 @@ def index(request): #the index view
 			for todo_id in checkedlist:
 				todo = TodoList.objects.get(id=int(todo_id)) #getting todo id
 				todo.delete() #deleting todo
+		
+		if "taskComplete" in request.POST: #checking if there is a request to complete a todo
+			checkedlist = request.POST["checkedbox"] #checked todos to be completed
+			for todo_id in checkedlist:
+				todo = TodoList.objects.get(id=int(todo_id)) #getting todo id
+				todo.completed ^= True
+				todo.save() #changing status
 
 	return render(request, "index.html", {"todos": todos, "categories":categories})
